@@ -1,4 +1,11 @@
 package com.example.hiberlazy;
 
-public class ChildRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface ChildRepository extends JpaRepository<Child, Integer> {
+
+    Child findByChildName(String name);
 }
+

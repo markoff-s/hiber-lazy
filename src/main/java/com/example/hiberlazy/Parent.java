@@ -1,12 +1,16 @@
 package com.example.hiberlazy;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.*;
 import java.util.List;
 
+import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.FetchType.EAGER;
 
 @Entity
-public class EagerParent {
+public class Parent {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -15,7 +19,8 @@ public class EagerParent {
     @Column
     private String parentName;
 
-    @OneToMany(mappedBy="eagerParent", fetch=EAGER)
+    @OneToMany(mappedBy="parent", cascade = ALL, orphanRemoval=true, fetch=EAGER)
+//    @Fetch(FetchMode.JOIN)
     private List<Child> children;
 
     public Long getId() {
