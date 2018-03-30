@@ -1,8 +1,5 @@
 package com.example.hiberlazy;
 
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -17,10 +14,9 @@ public class Parent {
     private Long id;
 
     @Column
-    private String parentName;
+    private String name;
 
     @OneToMany(mappedBy="parent", cascade = ALL, orphanRemoval=true, fetch=EAGER)
-//    @Fetch(FetchMode.JOIN)
     private List<Child> children;
 
     public Long getId() {
@@ -31,12 +27,12 @@ public class Parent {
         this.id = id;
     }
 
-    public String getParentName() {
-        return parentName;
+    public String getName() {
+        return name;
     }
 
-    public void setParentName(String parentName) {
-        this.parentName = parentName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public List<Child> getChildren() {

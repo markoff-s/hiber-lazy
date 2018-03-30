@@ -22,13 +22,13 @@ public class DatabaseLoader implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
 
         Parent eagerDad = new Parent();
-        eagerDad.setParentName("John");
+        eagerDad.setName("John");
 
         Parent lazyDad = new Parent();
-        lazyDad.setParentName("Jane");
+        lazyDad.setName("Jane");
 
         List<Parent> parents = new ArrayList<>();
         parents.add(eagerDad);
